@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function makeTransaction(quantity, pricePerDroid){
+            let totalPrice = quantity*pricePerDroid;
+            console.log("You ordered "+ quantity +" droids worth " + totalPrice +" credits!");
+        }
+        let quantity = prompt("Введіть кількість куплених дроїдів")
+        let pricePerDroid = prompt("Введіть ціну дроїдів")
+        makeTransaction(quantity, pricePerDroid);
+
+
+        function checkForSpam(message) {
+            const lowerCaseMessage = message.toLowerCase();
+            return lowerCaseMessage.includes('spam') || lowerCaseMessage.includes('sale')
+        }
+        console.log(checkForSpam("dsgsg SALE gkjngnskg"))
+        console.log(checkForSpam("lksndgnlsmf spam"))
+        console.log(checkForSpam("This is a safe message."))
+
+        let numbers = [15, 5, 7, 99, 24, 346, 24, 4, 400, 23]
+        let value = 10
+        filterArray(numbers, value)
+        function filterArray(numbers, value){
+            let numbers2 = []
+            for(const number of numbers){
+                if(number > value){
+                    numbers2.push(number);
+                }
+            }
+            console.log(numbers2)
+        }
+
+        let A = [15, 5, 7, 99, 24, 346, 24, 4, 400, 23]
+        let B = []
+        let MaxA = Number.MIN_VALUE
+        for(const a_ of A){
+            if(a_>MaxA){
+                MaxA = a_
+            }
+        }
+        for (let index = 0; index < A.length; index++) {
+            B[index] = A[index] * MaxA;
+        }
+        let SortedB = sortArrayDescending(B)
+        function sortArrayDescending(array) {
+            for (let i = 1; i < array.length; i++) {
+                let key = array[i];
+                let j = i - 1;
+                while (j >= 0 && array[j] < key) {
+                    array[j + 1] = array[j];
+                    j--;
+                }
+                array[j + 1] = key;
+            }
+            return array;
+        }
+        console.log(A)
+        console.log(B)
+        console.log(SortedB)
+    </script>
+</body>
+</html>
